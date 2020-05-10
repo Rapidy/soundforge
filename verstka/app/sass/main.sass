@@ -29,9 +29,9 @@ body
 	position: relative
 	line-height: 1.65
 	font-family: 'Roboto', sans-serif
-	overflow-x: hidden
+	overflow: hidden
 	color: $text
-	height: 100%
+	height: 100vh
 
 .container
 	padding:
@@ -232,5 +232,33 @@ button, button:active, button:focus, input
 				content: '\f00e'
 				opacity: 1
 				visibility: visible
-				
+
+.playlists
+	padding: 30px 0 30px 30px
+	h2					
+		font-size: 16px
+		letter-spacing: 1.28px
+		font-weight: 400
+		text-transform: uppercase
+		display: flex
+		align-items: center
+	&-list	
+		margin-top: 30px
+		height: 77vh
+		overflow-y: scroll 
+		&-category
+			list-style-type: none	
+			padding-left: 32px		
+			h2	
+				text-transform: uppercase
+				font-size: 14px
+				margin-bottom: 12px
+				cursor: pointer
+			&__item
+				color: #8c8c8c
+				border-left: 1px solid $accent
+				padding: 12px 0 12px 14px
+				font-size: 13px
+				cursor: pointer
+					
 									
