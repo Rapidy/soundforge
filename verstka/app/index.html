@@ -236,6 +236,46 @@
 		
 	</main>
 
+	<section class="music-player">
+		<div class="player">
+			<audio preload="auto" src="/audio/audio.mp3">
+				<track kind="captions"></audio>
+	
+			<div class="player__info">
+				<div class="player__info-img" style="background-image: url(/img/1-song.jpg);"></div>
+				<div class="player__info-description">
+					<div class="player__info-description__title">DARK HORSE</div>
+					<div class="player__info-description__artist">Prism-Katy Perry</div>
+				</div>
+			</div>
+	
+			<div class="player__control">
+				<button type="button" class="step-backward" style="color: rgb(74, 74, 74);"></button>
+				<button type="button" class="icon-play" style="color: rgb(74, 74, 74);"></button>
+				<button type="button" class="step-forward" style="color: rgb(74, 74, 74);"></button>
+			</div>
+	
+			<div class="player__progressbar">
+				<div class="player__progressbar-time">-02:05</div>
+				<div role="progressbar" tabindex="-1" class="progress" style="height: 2px;">
+					<div class="progress-inner" style="width: 26.3737%; background-color: rgb(242, 48, 5);"></div>
+				</div>
+			</div>
+	
+			<div class="player__type">
+				<button type="button" class="fa icon-refresh" style="color: rgb(74, 74, 74);"></button>
+			</div>
+	
+			<div class="player__volume"><i class="player__volume-icon icon-volume-up"></i>
+				<div class="player__volume-bar">
+					<div role="progressbar" tabindex="-1" class="progress" style="height: 2px;">
+						<div class="progress-inner" style="width: 100%; background-color: rgb(155, 155, 155);"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<script src="js/scripts.min.js"></script>
 
 </body>
