@@ -124,7 +124,7 @@ button, button:active, button:focus, input
 	display: flex
 	flex-direction: column
 	justify-content: space-between
-	padding: 30px 0
+	padding: 30px 0 40px
 	&__menu		
 		&__link
 			font-size: 14px
@@ -141,33 +141,36 @@ button, button:active, button:focus, input
 		&__icon
 			margin-right: 10px
 			width: 22px
-		&__statistic
-			div
-				width: 47px
-				height: 2px
-				background-color: $accent
-				margin-bottom: 30px
-			&__heading
+	&__statistic
+		width: 190px
+		&-delimiter
+			width: 47px
+			height: 2px
+			background-color: $accent
+			margin-bottom: 20px
+		&-heading
+			font-size: 14px
+			font-weight: 400
+			text-transform: uppercase
+			letter-spacing: 0.08em
+			color: #ffffff	
+			margin-bottom: 10px
+		&-line
+			display: flex
+			justify-content: space-between
+			&__title
 				font-size: 14px
 				font-weight: 400
 				text-transform: uppercase
 				letter-spacing: 0.08em
-				color: #ffffff	
-			&__table
-				margin-top: 18px
-				&__sig
-					font-size: 12px
-					font-weight: 400
-					text-transform: uppercase
-					letter-spacing: 0.08em
-					color: #6e6e6e
-				&__val
-					font-size: 12px
-					font-weight: 400
-					text-transform: uppercase
-					letter-spacing: 0.08em
-					color: $accent	
-					text-align: right
+				color: #6e6e6e
+			&__value
+				font-size: 14px
+				font-weight: 400
+				text-transform: uppercase
+				letter-spacing: 0.08em
+				color: $accent	
+				text-align: right
 
 .content
 	margin-top: 30px
