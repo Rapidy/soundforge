@@ -5,6 +5,9 @@
 *
 	transition: .25s
 
+::-webkit-scrollbar
+	display: none
+
 ::placeholder
 	color: #ebebeb
 
@@ -50,7 +53,7 @@ button, button:active, button:focus, input
 	outline: none
 
 .header
-	height: 75px
+	height: 65px
 	background: $dark
 	padding: $padside
 	align-items: center	
@@ -73,8 +76,8 @@ button, button:active, button:focus, input
 			display: flex
 			align-items: center
 			&_avatar
-				height: 75px
-				width: 75px
+				height: 65px
+				width: 65px
 				img
 					max-width: 100%
 			&-text
@@ -91,7 +94,7 @@ button, button:active, button:focus, input
 		&__search
 			background: $accent
 			display: flex
-			padding: 15px 20px
+			padding: 0 20px
 			justify-content: space-around
 			align-items: center
 			width: 33%
@@ -118,8 +121,11 @@ button, button:active, button:focus, input
 	padding: $padside
 
 .nav
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	padding: 30px 0
 	&__menu		
-		padding: 34px 0 46px
 		&__link
 			font-size: 14px
 			font-weight: 400
@@ -136,8 +142,6 @@ button, button:active, button:focus, input
 			margin-right: 10px
 			width: 22px
 		&__statistic
-			position: absolute
-			bottom: 60px
 			div
 				width: 47px
 				height: 2px
@@ -152,15 +156,81 @@ button, button:active, button:focus, input
 			&__table
 				margin-top: 18px
 				&__sig
-					font-size: 14px
+					font-size: 12px
 					font-weight: 400
 					text-transform: uppercase
 					letter-spacing: 0.08em
 					color: #6e6e6e
 				&__val
-					font-size: 14px
+					font-size: 12px
 					font-weight: 400
 					text-transform: uppercase
 					letter-spacing: 0.08em
 					color: $accent	
 					text-align: right
+
+.content
+	margin-top: 30px
+	display: grid
+	grid-template-columns: 1fr 1fr 1fr 1fr
+	grid-template-areas: 'header header header header' 'list list list list'
+	overflow-y: scroll
+	height: 88vh
+	&-header
+		position: relative
+		grid-area: header
+		&__photo
+			img
+				max-width: 100%	
+		&__text
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			right: 0
+			background: rgba(#000, .4)
+			padding: 12px 30px 12px 20px
+			h2
+				font-weight: 400
+				font-size: 11px
+				text-transform: uppercase
+				letter-spacing: 1.2px
+			h3
+				font-size: 21px
+				letter-spacing: 1.2px
+	&-list
+		margin-top: 20px
+		grid-area: list
+		display: grid
+		grid-template-columns: 1fr 1fr 1fr 1fr
+		grid-gap: 20px
+		&__item
+			img
+				max-width: 100%
+	&-header, &-list__item
+		position: relative
+		&::after
+			content: ''
+			font-family: 'Font Awesome 5 Free'
+			position: absolute
+			font-weight: 700
+			font-size: 30px
+			color: #ccc
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			background: rgba(#000, .5)
+			display: flex
+			justify-content: center
+			align-items: center
+			opacity: 0
+			visibility: hidden
+			transition: .2s
+		&:hover
+			cursor: pointer
+			&::after
+				content: '\f00e'
+				opacity: 1
+				visibility: visible
+				
+									
