@@ -1,9 +1,4 @@
 @import vars
-@import fonts
-@import libs
-
-*
-	transition: .25s
 
 ::-webkit-scrollbar
 	display: none
@@ -133,8 +128,10 @@ button, button:active, button:focus, input
 			letter-spacing: 0.08em
 			color: #ffffff
 			text-decoration: none
-			display: block
+			display: flex
+			align-items: center
 			padding: 15px 0
+			transition: .25s
 			&:hover
 				text-decoration: none 
 				color: $accent
@@ -251,12 +248,19 @@ button, button:active, button:focus, input
 		overflow-y: scroll 
 		&-category
 			list-style-type: none	
-			padding-left: 32px		
+			padding-left: 30px
+			margin-top: 10px	
 			h2	
 				text-transform: uppercase
 				font-size: 14px
 				margin-bottom: 12px
 				cursor: pointer
+				transition: .25s
+				padding: 10px 0
+				border-bottom: 1px solid transparent
+				&:hover
+					border-bottom: 1px solid $accent
+					padding-left: 10px
 			&__item
 				color: #8c8c8c
 				border-left: 1px solid $accent
@@ -270,81 +274,82 @@ button, button:active, button:focus, input
 	color: #fff
 	position: fixed
 	bottom: 0
-.player
-	display: flex
-	align-items: center
-	justify-content: space-between
-	height: 65px
-	padding: 0 25px
-	&__info
+	left: 0
+	.player
 		display: flex
 		align-items: center
-		&-img
-			width: 50px
-			height: 50px
-			font: none
-			border-radius: 50%
-			background-size: cover
-			background-position: center
-			background-repeat: no-repeat
-			margin-right: 15px
-		&-description
-			text-align: start
-			&__title
+		justify-content: space-between
+		height: 65px
+		padding: 0 25px
+		&__info
+			display: flex
+			align-items: center
+			&-img
+				width: 50px
+				height: 50px
+				font: none
+				border-radius: 50%
+				background-size: cover
+				background-position: center
+				background-repeat: no-repeat
+				margin-right: 15px
+			&-description
+				text-align: start
+				&__title
+					font-weight: 300
+					text-transform: uppercase
+					font-size: 14px 
+				&__artist
+					font-size: 11px
+					font-weight: 300
+					color: #b3b3b3
+		&__control
+			display: flex
+			button
+				padding: 0
+				line-height: 10px
+			.step-backward
+				margin-right: 10px
+			.step-forward
+				margin-left: 10px
+		&__progressbar
+			display: flex
+			align-items: center
+			min-width: 60%
+			&-time
+				font-size: 12px
 				font-weight: 300
-				text-transform: uppercase
-				font-size: 14px 
-			&__artist
-				font-size: 11px
-				font-weight: 300
-				color: #b3b3b3
-	&__control
-		display: flex
-		button
-			padding: 0
-			line-height: 10px
-		.step-backward
-			margin-right: 10px
-		.step-forward
-			margin-left: 10px
-	&__progressbar
-		display: flex
-		align-items: center
-		min-width: 60%
-		&-time
-			font-size: 12px
-			font-weight: 300
-			margin-right: 10px
-	&__type
-		height: 20px
-		button
-			background: none
-			border: 0
-			outline: none
-			cursor: pointer
-			padding: 0		
-	&__volume
-		display: flex
-		min-width: 8%
-		align-items: center
-		&-icon
-			margin-right: 10px
-			height: 21px
-		&-bar
-			width: 100%
-.progress
-	width: 100%
-	background-color: #dadada
-	outline: none
-	cursor: pointer
-.progress
-	height: 6px !important
-	border-radius: 10px
-	background-color: #292929 !important
-	&-inner
+				margin-right: 10px
+		&__type
+			height: 20px
+			button
+				background: none
+				border: 0
+				outline: none
+				cursor: pointer
+				padding: 0		
+		&__volume
+			display: flex
+			min-width: 8%
+			align-items: center
+			&-icon
+				margin-right: 10px
+				height: 21px
+			&-bar
+				width: 100%
+	.progress
+		width: 100%
+		background-color: #dadada
+		outline: none
+		cursor: pointer
+	.progress
 		height: 6px !important
 		border-radius: 10px
-		background-color: #f23005 !important
+		background-color: #292929 !important
+		&-inner
+			height: 6px !important
+			border-radius: 10px
+			background-color: #f23005 !important
 				
 
 /*  */
@@ -379,7 +384,8 @@ button, button:active, button:focus, input
 
 .icon-random:before
   content: url(/img/random.svg)
-  display: block
+  display: block					
 
-/*  */					
-									
+
+// always at the end	
+@import media  
