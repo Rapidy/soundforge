@@ -3,11 +3,14 @@ import './sass/App.sass';
 
 import Header from './Components/Header';
 import LeftSideBar from './Components/LeftSideBar';
+import Content from './Components/Content';
 import RightSideBar from './Components/RightSideBar';
 import Player from './Components/Player';
 
 function App() {
+
   return (
+    
     <div className="App">
       
       <Header lastSearch='Roddy Ricch - The Box'/>
@@ -33,7 +36,7 @@ function App() {
 
           <section className="content-list">
           
-            
+            <Content />
 
           </section>		
 

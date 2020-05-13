@@ -1,4 +1,5 @@
 @import vars
+@import fonts
 
 ::-webkit-scrollbar
 	display: none
@@ -27,6 +28,7 @@ body
 	overflow: hidden
 	color: $text
 	height: 100vh
+	margin: 0
 
 .container
 	padding:
@@ -36,11 +38,8 @@ body
 h1, h2, h3, h4, h5, h6, p, ul, ol
 	margin: 0
 
-a
-	color: #fff
-	&:hover, &:visited
-		text-decoration: none
-		color: #fff	
+a, a:hover, a:visited
+	text-decoration: none
 
 button, button:active, button:focus, input
 	background: none
