@@ -7,6 +7,8 @@ import Content from './Components/Content';
 import RightSideBar from './Components/RightSideBar';
 import Player from './Components/Player';
 
+import topSong from './img/top-song.jpg'
+
 function App() {
 
   return (
@@ -24,7 +26,7 @@ function App() {
           <header className="content-header">
 
             <div className="content-header__photo">
-              <img src="img/top-song.jpg" alt="" />
+              <img src={topSong} alt="" />
             </div>
 
             <div className="content-header__text">
@@ -34,11 +36,7 @@ function App() {
 
           </header>
 
-          <section className="content-list">
-          
-            <Content />
-
-          </section>		
+          <Content />		
 
         </section>
 

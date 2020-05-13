@@ -23,7 +23,7 @@ export default class Content extends Component {
     this.setState({
       songs: songs,
       error: false
-    })
+    });
   }
 
   onError = (error) => {
@@ -32,12 +32,29 @@ export default class Content extends Component {
     })
   }
 
-  render() {
-    return (
+  renderItems(arr) {
+    return arr.map(item => {
+      const {alt, photo, id} = item;
 
-      <div class="content-list__item">
-        <img />
-      </div>
+      return (
+
+        <div key={id} className="content-list__item">
+          <img src={photo} alt={alt}/>
+        </div>
+
+      )
+    })
+  }
+
+  render() {
+    const {error, songs} = this.state;
+    const items = this.renderItems(songs);
+
+    return (
+      
+      <section className="content-list">
+        {items}
+      </section>
 
     )
   }

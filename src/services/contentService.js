@@ -5,7 +5,7 @@ export default class contentService {
   }
 
   getResource = async (url) => {
-    const res = await fetch(this.api + url);
+    const res = await fetch(this._api + url);
 
     if(!res.ok) {
       throw new Error(`Ошибка пути ${url}, статус ошибки ${res.status}`);
@@ -15,7 +15,7 @@ export default class contentService {
   }
 
   getAllSongs = async () => {
-    const res = await this.getAllSongs('/posts/');
+    const res = await this.getResource('/posts/');
 
     return res;
   }
