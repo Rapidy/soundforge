@@ -274,117 +274,116 @@ button, button:active, button:focus, input
 	position: fixed
 	bottom: 0
 	left: 0
-	.player
+.player
+	display: flex
+	align-items: center
+	justify-content: space-between
+	height: 65px
+	padding: 0 25px
+	&__info
 		display: flex
 		align-items: center
-		justify-content: space-between
-		height: 65px
-		padding: 0 25px
-		&__info
-			display: flex
-			align-items: center
-			&-img
-				width: 50px
-				height: 50px
-				font: none
-				border-radius: 50%
-				background-size: cover
-				background-position: center
-				background-repeat: no-repeat
-				margin-right: 15px
-			&-description
-				text-align: start
-				&__title
-					font-weight: 300
-					text-transform: uppercase
-					font-size: 14px 
-				&__artist
-					font-size: 11px
-					font-weight: 300
-					color: #b3b3b3
-		&__control
-			display: flex
-			button
-				padding: 0
-				line-height: 10px
-			.step-backward
-				margin-right: 10px
-			.step-forward
-				margin-left: 10px
-		&__progressbar
-			display: flex
-			align-items: center
-			min-width: 60%
-			&-time
-				font-size: 12px
+		&-img
+			width: 50px
+			height: 50px
+			font: none
+			border-radius: 50%
+			background-size: cover
+			background-position: center
+			background-repeat: no-repeat
+			margin-right: 15px
+		&-description
+			text-align: start
+			&__title
 				font-weight: 300
-				margin-right: 10px
-		&__type
-			height: 20px
-			button
-				background: none
-				border: 0
-				outline: none
-				cursor: pointer
-				padding: 0		
-		&__volume
-			display: flex
-			min-width: 8%
-			align-items: center
-			&-icon
-				margin-right: 10px
-				height: 21px
-			&-bar
-				width: 100%
-	.progress
-		width: 100%
-		background-color: #dadada
-		outline: none
-		cursor: pointer
-	.progress
+				text-transform: uppercase
+				font-size: 14px 
+			&__artist
+				font-size: 11px
+				font-weight: 300
+				color: #b3b3b3
+	&__control
+		display: flex
+		button
+			padding: 0
+			line-height: 10px
+		.step-backward
+			margin-right: 10px
+		.step-forward
+			margin-left: 10px
+	&__progressbar
+		display: flex
+		align-items: center
+		min-width: 60%
+		&-time
+			font-size: 12px
+			font-weight: 300
+			margin-right: 10px
+	&__type
+		height: 20px
+		button
+			background: none
+			border: 0
+			outline: none
+			cursor: pointer
+			padding: 0		
+	&__volume
+		display: flex
+		min-width: 8%
+		align-items: center
+		&-icon
+			margin-right: 10px
+			height: 21px
+		&-bar
+			width: 100%
+.progress
+	width: 100%
+	background-color: #dadada
+	outline: none
+	cursor: pointer
+.progress
+	height: 6px !important
+	border-radius: 10px
+	background-color: #292929 !important
+	&-inner
 		height: 6px !important
 		border-radius: 10px
-		background-color: #292929 !important
-		&-inner
-			height: 6px !important
-			border-radius: 10px
-			background-color: #f23005 !important
-				
+		background-color: #f23005 !important
+			
 
 /*  */
 .step-backward:before
-  content: url(/img/backward.svg)
+  content: url(../img/backward.svg)
   display: block
 
 .step-forward:before
-  content: url(/img/backward.svg)
+  content: url(../img/backward.svg)
   display: block
   transform: scale(-1,1)
 
 .icon-play:before
-  content: url(/img/interface.svg)
+  content: url(../img/interface.svg)
   display: block
 
 .icon-pause:before
-  content: url(/img/signs.svg)
+  content: url(../img/signs.svg)
   display: block
 
 .icon-volume-up:before
-  content: url(/img/multimedia.svg)
+  content: url(../img/multimedia.svg)
   display: block
 
 .icon-refresh:before
-  content: url(/img/refresh.svg)
+  content: url(../img/refresh.svg)
   display: block
 
 .icon-repeat:before
-  content: url(/img/repeat.svg)
+  content: url(../img/repeat.svg)
   display: block
 
 .icon-random:before
-  content: url(/img/random.svg)
-  display: block					
-
+  content: url(../img/random.svg)
+  display: block	
 
 // always at the end	
 @import media  
