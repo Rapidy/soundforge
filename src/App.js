@@ -3,11 +3,16 @@ import './sass/App.sass';
 
 import Header from './Components/Header';
 import LeftSideBar from './Components/LeftSideBar';
+import Content from './Components/Content';
 import RightSideBar from './Components/RightSideBar';
 import Player from './Components/Player';
 
+import topSong from './img/top-song.jpg'
+
 function App() {
+
   return (
+    
     <div className="App">
       
       <Header lastSearch='Roddy Ricch - The Box'/>
@@ -21,7 +26,7 @@ function App() {
           <header className="content-header">
 
             <div className="content-header__photo">
-              <img src="img/top-song.jpg" alt="" />
+              <img src={topSong} alt="" />
             </div>
 
             <div className="content-header__text">
@@ -31,11 +36,7 @@ function App() {
 
           </header>
 
-          <section className="content-list">
-          
-            
-
-          </section>		
+          <Content />		
 
         </section>
 

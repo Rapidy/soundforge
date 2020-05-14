@@ -3,7 +3,7 @@ import React from 'react';
 const RightSideBar = () => {
   return (
 
-    <nav className="playlists">
+    <aside className="playlists">
 
 			<h2><img src="img/Playlists.svg" className="nav__menu__icon" alt="" />Плейлисты</h2>
 
@@ -31,7 +31,7 @@ const RightSideBar = () => {
 	
 			</div>
 
-		</nav>
+		</aside>
   
   )
 }
