@@ -15,7 +15,7 @@ function App() {
     
     <div className="App">
       
-      <Header lastSearch='Roddy Ricch - The Box'/>
+      <Header lastSearch='Trippie Redd - Take a walk'/>
 
       <main className="window">
 
@@ -25,18 +25,16 @@ function App() {
 			
           <header className="content-header">
 
-            <div className="content-header__photo">
-              <img src={topSong} alt="" />
-            </div>
+            <img className="content-header__photo" src={topSong} alt="" />
 
             <div className="content-header__text">
-              <h2>Топ этой недели</h2>
-              <h3>Clean Bandit</h3>	
+              <h2 className="h2">Топ этой недели</h2>
+              <h3 className="h3">Clean Bandit</h3>	
             </div>
 
           </header>
 
-          <Content />		
+          <Content />	
 
         </section>
 

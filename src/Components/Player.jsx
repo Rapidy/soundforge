@@ -1,39 +1,44 @@
 import React, { Component } from 'react';
 import MusicPlayer from 'react-responsive-music-player';
-
-const playlist = [
-  {
-    url: '/audio/audio.mp3',
-    cover: '/static/media/placeholder.jpg',
-    title: 'DARK HORSE',
-    artist: [
-      'Prism-Katy Perry',
-    ]
-  },
-  {
-    url: '/audio/audio2.mp3',
-    cover: '../img/placeholder.jpg',
-    title: 'DARK HORSE1',
-    artist: [
-      'Prism-Katy Perry1',
-    ]
-  },
-  {
-      url: '/audio/audio3.mp3',
-      cover: '../img/placeholder.jpg',
-      title: 'DARK HORSE2',
-      artist: [
-        'Prism-Katy Perry2',
-      ]
-  }
-];
+import contentService from '../services/contentService'
 
 export default class Player extends Component {
+
+  contentService = new contentService();
+
+  state = {
+    songs: [],
+    error: false,
+  }
+
+  componentDidMount() {
+    this.updateSongs();
+  }
+
+  updateSongs() {
+    this.contentService.getAllSongs()
+    .then(this.onSongsLoaded)
+    .catch(this.onError)
+  }
+
+  onSongsLoaded = (songs) => {
+    this.setState({
+      songs: songs,
+      error: false
+    });
+  }
+
+  onError = (error) => {
+    this.setState({
+      error: true
+    })
+  }
+
   render() {
     return (
-    <section class="music-player">
-      <MusicPlayer playlist={playlist} />
-    </section>
+      <section className="music-player">
+        <MusicPlayer playlist={this.state.songs} />
+      </section>
     );
   }
 }

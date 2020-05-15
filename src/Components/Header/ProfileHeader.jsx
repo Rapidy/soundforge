@@ -13,8 +13,8 @@ const ProfileHeader = (props) => {
 
       <div className="header-container__profile-text">
 
-        <h2>{props.name}</h2>
-        <h3>{props.days}</h3>
+        <h2 className="h2">{props.name}</h2>
+        <h3 className="h3">{props.days}</h3>
 
       </div>       
 
