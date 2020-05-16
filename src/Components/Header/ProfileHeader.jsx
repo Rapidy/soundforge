@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import avatar from './../../img/avatar.png';
 
@@ -8,7 +9,9 @@ const ProfileHeader = (props) => {
     <div className="header-container__profile">
 
       <div className="header-container__profile_avatar">
-        <img src={avatar} alt="Аватар профиля" />
+        <NavLink to="/profile">
+          <img src={avatar} alt="Аватар профиля" />
+        </NavLink>
       </div>
 
       <div className="header-container__profile-text">

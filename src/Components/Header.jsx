@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 import ProfileHeader from './Header/ProfileHeader'
 
@@ -7,7 +8,7 @@ const Header = (props) => {
 
     <header className="header">
 
-      <h1 className="header__logo"><a href="/">Sound<span>Forge</span></a></h1>
+      <h1 className="header__logo"><NavLink to="/">Sound<span>Forge</span></NavLink></h1>
       
       <div className="header-container">
 

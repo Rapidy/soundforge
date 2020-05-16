@@ -50,6 +50,11 @@ button, button:active, button:focus, input
 img
 	display: block
 
+.section
+	height: 100%
+	margin-top: 30px
+	overflow-y: scroll
+
 .header
 	height: 65px
 	background: $dark
@@ -117,12 +122,13 @@ img
 	display: grid
 	grid-template-columns: 220px 4fr 220px
 	padding: $padside
+	height: 100vh
 
 .nav
 	display: flex
 	flex-direction: column
 	justify-content: space-between
-	padding: 30px 0 90px
+	padding: 30px 0 160px
 	&__menu		
 		&__link
 			font-size: 14px
@@ -173,9 +179,6 @@ img
 				text-align: right
 
 .content
-	margin-top: 30px
-	overflow-y: scroll
-	height: 88vh
 	&-header
 		&__photo
 			width: 100%
@@ -236,7 +239,8 @@ img
 		font-weight: 400
 		text-transform: uppercase
 		display: flex
-		align-items: center
+		align-items: flex-end
+		line-height: 20px
 	&-list	
 		margin-top: 15px
 		height: 73vh
@@ -244,18 +248,33 @@ img
 		&-category
 			list-style-type: none	
 			padding-left: 30px
-			margin-top: 10px	
-			h2	
+			margin-top: 15px
+			position: relative		
+			&::before
+				content: ''
+				width: 5px
+				height: 5px
+				position: absolute
+				left: 14px
+				top: 19px
+				background: #ccc
+				border-radius: 50%
+				opacity: 1
+				transition: .25s
+			&:hover
+				.h3
+					color: lighten($accent, 7%)
+				&::before
+					background: $accent
+			.h3	
 				text-transform: uppercase
-				font-size: 14px
+				font-size: 15px
 				margin-bottom: 12px
 				cursor: pointer
 				transition: .25s
 				padding: 10px 0
-				border-bottom: 1px solid transparent
-				&:hover
-					border-bottom: 1px solid $accent
-					padding-left: 10px
+				font-weight: 400
+				transition: .25s
 			&__item
 				color: #8c8c8c
 				border-left: 1px solid $accent

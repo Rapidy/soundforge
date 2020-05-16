@@ -41,8 +41,8 @@ import contentService from '../services/contentService'
           <MusicPlayer playlist={this.state.songs} />
         </section>
       );
-    }else{
-      return(null);
+    } else{
+      return null;
     }
 
   }

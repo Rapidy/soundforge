@@ -1,50 +1,39 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './sass/App.sass';
 
 import Header from './Components/Header';
 import LeftSideBar from './Components/LeftSideBar';
-import Content from './Components/Content';
 import RightSideBar from './Components/RightSideBar';
 import Player from './Components/Player';
 
-import topSong from './img/top-song.jpg'
+import Profile from './Components/Main/Profile';
+import Content from './Components/Main/Content';
 
 function App() {
 
   return (
-    
-    <div className="App">
-      
-      <Header lastSearch='Trippie Redd - Take a walk'/>
+    <BrowserRouter>
+      <div className="App">
+        
+        <Header lastSearch='Trippie Redd - Take a walk'/>
 
-      <main className="window">
+        <main className="window">
 
-        <LeftSideBar />
+          <LeftSideBar />
 
-        <section className="content">
-			
-          <header className="content-header">
+          <Route exact path="/" component={Content}/>	
 
-            <img className="content-header__photo" src={topSong} alt="" />
+          <Route exact path="/profile" component={Profile}/>	
 
-            <div className="content-header__text">
-              <h2 className="h2">Топ этой недели</h2>
-              <h3 className="h3">Clean Bandit</h3>	
-            </div>
+          <RightSideBar />
 
-          </header>
+          <Player />
 
-          <Content />	
-
-        </section>
-
-        <RightSideBar />
-
-        <Player />
-
-      </main>   
-      
-    </div>
+        </main>   
+        
+      </div>
+    </BrowserRouter>  
   );
 }
 
