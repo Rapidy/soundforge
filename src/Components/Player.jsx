@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MusicPlayer from 'react-responsive-music-player';
 import contentService from '../services/contentService'
 
-export default class Player extends Component {
+ class Player extends Component {
 
   contentService = new contentService();
 
@@ -33,12 +33,20 @@ export default class Player extends Component {
       error: true
     })
   }
-
+  
   render() {
-    return (
-      <section className="music-player">
-        <MusicPlayer playlist={this.state.songs} />
-      </section>
-    );
+    if (this.state.songs.length !== 0) {
+      return (
+        <section className="music-player">
+          <MusicPlayer playlist={this.state.songs} />
+        </section>
+      );
+    }else{
+      return(null);
+    }
+
   }
+
 }
+
+export default Player;
