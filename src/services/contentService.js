@@ -20,4 +20,14 @@ export default class contentService {
     return res;
   }
 
+  getProfile = async () => {
+    const res = await this.getResource('/posts/');
+
+    return res.map(this._transformProfileData)
+  }
+
+  _transformProfileData = (profile) => {
+
+  }
+
 }
