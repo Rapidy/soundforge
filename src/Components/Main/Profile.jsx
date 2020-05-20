@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import contentService from './../../services/contentService'
+import { NavLink, Route } from 'react-router-dom'
 
 import bgImage from '../../img/top-song.jpg'
 
-class Profile extends Component {
-  contentService = new contentService();
+import ProfileHeaderInfo from './Profile/ProfileHeaderInfo'
+import ProfileTracks from './Profile/ProfileTracks'
+import ProfileAlbums from './Profile/ProfileAlbums'
+import ProfileInfo from './Profile/ProfileInfo'
 
-  state = {
-    profile: [],
-    error: false,
-  }
+class Profile extends Component {
 
   render() {
     return (
@@ -23,34 +22,23 @@ class Profile extends Component {
             <img src="https://i.pinimg.com/originals/06/12/7d/06127dc4c4ca9241603a7c4dbe1464fd.jpg" alt=""/>
           </div>
 
-          <div className="profile-header__info">
-            
-              <h2 className="h2">Андрей Какашкин</h2>
-              <h2 className="h2">Рэп исполнитель</h2>           
-              <h2 className="h2">Возраст: 20 лет</h2>
-
-              <h3 className="h3">
-                Дата регистрации: 
-                <span> 17.05.2020</span>
-              </h3>
-
-          </div>
+          <ProfileHeaderInfo name="Андрей Какашкин" age="20" genre="Рэп" registrDate="17.05.2020" />
 
         </div>
 
         <section className="profile-content">
           
-          <nav className="profile-content-tabs">
-            <li className="active">Таб 1</li>
-            <li>Таб 2</li>
-            <li>Таб 3</li>
+          <nav className="profile-content-nav">
+            <NavLink to="/profile/tracks" className="profile-content-tabs__item">Треки</NavLink>
+            <NavLink to="/profile/albums" className="profile-content-tabs__item">Альбомы</NavLink>
+            <NavLink to="/profile/info" className="profile-content-tabs__item">Информация</NavLink>
           </nav>
 
-          <div className="profile-content-tabcontainer">
+          <div className="profile-content-container">
 
-            <div className="profile-content-tabcontainer__item">
-              fff
-            </div>
+            <Route exact path="/profile/tracks" component={ProfileTracks} />
+            <Route exact path="/profile/albums" component={ProfileAlbums} />
+            <Route exact path="/profile/info" component={ProfileInfo} />
 
           </div>
 
