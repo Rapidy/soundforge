@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol
 
 a, a:hover, a:visited
 	text-decoration: none
+	color: $text
 
 button, button:active, button:focus, input
 	background: none
@@ -420,19 +421,21 @@ img
 				font-size: 14px	
 	&-content
 		margin-top: 20px
-		&-tabs
+		&-nav
 			display: inline-flex
-			li
+			a
 				padding: 7px 20px
 				text-align: center
 				cursor: pointer
 				transition: .25s
+				color: #ccc
 				&:hover
 					background: darken($accent, 5%)
+					color: $text
 				&.active
-					background: rgba($dark, .5)
-		&-tabcontainer
-			background: rgba($dark, .5)
+					background: rgba($dark, .6)
+		&-container
+			background: rgba($dark, .6)
 			padding: 20px
 			&__item			
 

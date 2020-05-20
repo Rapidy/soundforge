@@ -26,8 +26,4 @@ export default class contentService {
     return res.map(this._transformProfileData)
   }
 
-  _transformProfileData = (profile) => {
-
-  }
-
 }

@@ -24,7 +24,7 @@ function App() {
 
           <Route exact path="/" component={Content}/>	
 
-          <Route exact path="/profile" component={Profile}/>	
+          <Route path="/profile" component={Profile}/>	
 
           <RightSideBar />
 
