@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import API from "../../utils/API";
-// import contentService from '../../services/contentService';
 
 import topSong from '../../img/top-song.jpg';
 
-import Preloader from '../Preloader'
+import Preloader from '../Preloader';
 
-export default class Content extends Component {
-
+class Content extends Component {
   state = {
     isLoading: true,
     songs: null
@@ -20,7 +18,7 @@ export default class Content extends Component {
         <div key={key} className="content-list__item">
           <img src={item.cover} alt={item.title}/>
         </div>
-      )
+      );
     })
   }
 
@@ -60,3 +58,10 @@ export default class Content extends Component {
 Content.propTypes = {
   songs: PropTypes.string
 };
+
+export default Content;
+
+
+
+
+// import contentService from '../../services/contentService';
