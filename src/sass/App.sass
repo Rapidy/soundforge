@@ -58,6 +58,18 @@ img
 	margin-top: 30px
 	overflow-y: scroll
 
+.preloader
+	position: absolute
+	top: 0
+	right: 0
+	left: 0
+	bottom: 0
+	background: $lightdark
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 50vh
+
 .header
 	height: 65px
 	background: $dark
@@ -206,9 +218,10 @@ img
 		display: grid
 		grid-template-columns: 1fr 1fr 1fr 1fr
 		grid-gap: 20px
+		position: relative
 		&__item
 			img
-				max-width: 100%
+				width: 100%
 	&-header, &-list__item
 		position: relative
 		&::before
@@ -367,7 +380,7 @@ img
 	&-inner
 		height: 6px !important
 		border-radius: 10px
-		background-color: #f23005 !important
+		background-color: $accent !important
 
 .profile
 	&-header
@@ -434,9 +447,9 @@ img
 					background: darken($accent, 5%)
 					color: $text
 				&.active
-					background: rgba($dark, .6)
+					background: $lightdark
 		&-container
-			background: rgba($dark, .6)
+			background: $lightdark
 			padding: 20px
 			&__item			
 

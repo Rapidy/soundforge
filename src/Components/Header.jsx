@@ -12,7 +12,7 @@ const Header = (props) => {
       
       <div className="header-container">
 
-        <ProfileHeader name='Андрей Какашкин' days='300 дней'/>
+        <ProfileHeader name='Артем Вернигоров' days='300 дней'/>
 
         <div className="header-container__search">
           

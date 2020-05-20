@@ -17,23 +17,23 @@ const LeftSideBar = () => {
 			<div className="nav__menu">
 
 				<NavLink to="/top-tracks" className="nav__menu__link">
-					<img src={audioWaveFilled} className="nav__menu__icon" alt="top songs" />
+					<img src={audioWaveFilled} className="nav__menu__icon" alt="Топ треков" />
 					Топ треков
 				</NavLink>
 				<NavLink to="/recommendations" className="nav__menu__link">
-					<img src={music} className="nav__menu__icon" alt="recomended" />
+					<img src={music} className="nav__menu__icon" alt="Рекомендации" />
 					Рекомендации
 				</NavLink>
 				<NavLink to="/popular" className="nav__menu__link">
-					<img src={love} className="nav__menu__icon" alt="most heard" />
+					<img src={love} className="nav__menu__icon" alt="Популярные" />
 					Популярные
 				</NavLink>
 				<NavLink to="/favorite" className="nav__menu__link">					
-					<img src={hand} className="nav__menu__icon" alt="song of the day" />
+					<img src={hand} className="nav__menu__icon" alt="Избранные" />
 					Избранные				
 				</NavLink>
 				<NavLink to="/random-track" className="nav__menu__link">			
-					<img src={shuffle} className="nav__menu__icon" alt="random song" />
+					<img src={shuffle} className="nav__menu__icon" alt="Любой трек" />
 					Любой трек				
 				</NavLink>
 

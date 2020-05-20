@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+import API from "../../utils/API";
 // import contentService from '../../services/contentService';
 
 import topSong from '../../img/top-song.jpg';
 
-import API from "../../utils/API";
-import PropTypes from "prop-types";
+import Preloader from '../Preloader'
 
-class Content extends Component {
+export default class Content extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      songs: null
-    };
-  }
+  state = {
+    isLoading: true,
+    songs: null
+  };
 
   gridData(arr) {
     return arr.map( (item, key) => {
@@ -26,10 +24,17 @@ class Content extends Component {
     })
   }
 
+  async componentDidMount() {
+    let songs = await API.get('/posts/music');
+        songs = songs.data;
+    this.setState({
+      isLoading: false,
+      songs: songs
+    });
+  }
+
   render() {
     const { isLoading, songs } = this.state;
-
-    const loadingMessage = <span>Loading...</span>;
 
     return (
       <section className="content section">
@@ -43,22 +48,11 @@ class Content extends Component {
         </header>
 
         <section className="content-list">
-          {isLoading ? loadingMessage : this.gridData(songs)}
+          { isLoading ? <Preloader /> : this.gridData(songs) }
         </section>
 
       </section>
     );
-  }
-
-  async componentDidMount() {
-    let songs = await API.get('/posts/music');
-        songs = songs.data;
-    this.setState({
-      ...this.state, ...{
-        isLoading: false,
-        songs
-      }
-    });
   }
 
 }
@@ -66,5 +60,3 @@ class Content extends Component {
 Content.propTypes = {
   songs: PropTypes.string
 };
-
-export default Content;
