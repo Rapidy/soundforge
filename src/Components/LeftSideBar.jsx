@@ -24,7 +24,7 @@ const LeftSideBar = () => {
 					<img src={music} className="nav__menu__icon" alt="Рекомендации" />
 					Рекомендации
 				</NavLink>
-				<NavLink to="/popular" className="nav__menu__link">
+				<NavLink to="/new-songs" className="nav__menu__link">
 					<img src={love} className="nav__menu__icon" alt="Популярные" />
 					Популярные
 				</NavLink>

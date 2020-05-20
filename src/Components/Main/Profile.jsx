@@ -29,9 +29,11 @@ class Profile extends Component {
         <section className="profile-content">
           
           <nav className="profile-content-nav">
+
             <NavLink to="/profile/tracks" className="profile-content-tabs__item">Треки</NavLink>
             <NavLink to="/profile/albums" className="profile-content-tabs__item">Альбомы</NavLink>
             <NavLink to="/profile/info" className="profile-content-tabs__item">Информация</NavLink>
+            
           </nav>
 
           <div className="profile-content-container">
