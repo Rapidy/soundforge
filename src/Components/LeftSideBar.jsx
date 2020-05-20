@@ -20,18 +20,22 @@ const LeftSideBar = () => {
 					<img src={audioWaveFilled} className="nav__menu__icon" alt="Топ треков" />
 					Топ треков
 				</NavLink>
+
 				<NavLink to="/recommendations" className="nav__menu__link">
 					<img src={music} className="nav__menu__icon" alt="Рекомендации" />
 					Рекомендации
 				</NavLink>
+
 				<NavLink to="/new-songs" className="nav__menu__link">
 					<img src={love} className="nav__menu__icon" alt="Популярные" />
 					Популярные
 				</NavLink>
+
 				<NavLink to="/favorite" className="nav__menu__link">					
 					<img src={hand} className="nav__menu__icon" alt="Избранные" />
 					Избранные				
 				</NavLink>
+
 				<NavLink to="/random-track" className="nav__menu__link">			
 					<img src={shuffle} className="nav__menu__icon" alt="Любой трек" />
 					Любой трек				
@@ -40,7 +44,7 @@ const LeftSideBar = () => {
 			</div>
 
 			<Statistic 
-				amountOfArtist="9.600"
+				amountOfArtists="9.600"
 				amountOfTracks="251.738"
 				amountOfListeners="102.690" 
 			/>

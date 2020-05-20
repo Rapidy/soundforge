@@ -12,7 +12,7 @@ class Statistic extends Component {
 				<div className="nav__statistic-line">
 
 					<div className="nav__statistic-line__title">Артистов:</div>
-					<div className="nav__statistic-line__value">{this.props.amountOfArtist}</div>
+					<div className="nav__statistic-line__value">{this.props.amountOfArtists}</div>
 
 				</div>
 
