@@ -59,6 +59,4 @@ class Content extends Component {
 export default Content;
 
 
-
-
 // import contentService from '../../services/contentService';
