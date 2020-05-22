@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
 import API from "../../utils/API";
 
 import topSong from '../../img/top-song.jpg';
 
 import Preloader from '../Preloader';
 
+
 class Content extends Component {
   state = {
     isLoading: true,
     songs: null
   };
+
 
   gridData(arr) {
     return arr.map( (item, key) => {
@@ -55,13 +56,7 @@ class Content extends Component {
 
 }
 
-Content.propTypes = {
-  songs: PropTypes.string
-};
-
 export default Content;
-
-
 
 
 // import contentService from '../../services/contentService';

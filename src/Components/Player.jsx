@@ -1,50 +1,33 @@
 import React, { Component } from 'react';
 import MusicPlayer from 'react-responsive-music-player';
-import contentService from '../services/contentService'
+import API from "../utils/API";
 
  class Player extends Component {
 
-  contentService = new contentService();
-
   state = {
-    songs: [],
-    error: false,
-  }
+    player: null
+  };
 
-  componentDidMount() {
-    this.updateSongs();
-  }
-
-  updateSongs() {
-    this.contentService.getAllSongs()
-    .then(this.onSongsLoaded)
-    .catch(this.onError)
-  }
-
-  onSongsLoaded = (songs) => {
+  async componentDidMount() {
+    let player = await API.get('/posts/player');
+        player = player.data[0].posts;
     this.setState({
-      songs: songs,
-      error: false
+      player: player
     });
   }
 
-  onError = (error) => {
-    this.setState({
-      error: true
-    })
-  }
   
   render() {
-    if (this.state.songs.length !== 0) {
+    
+    if (this.state.player !== null) {
       return (
         <section className="music-player">
-          <MusicPlayer playlist={this.state.songs} />
+          <MusicPlayer playlist={this.state.player} autoplay={false} />
         </section>
       );
     } else{
       return null;
     }
-
   }
 
 }

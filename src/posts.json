@@ -1,7 +1,7 @@
 {
     "posts": [
         {
-            "url": "https://cdn7.deliciouspeaches.com/get/music/20190614/muzlome_Polo_G_-_Dyin_Breed_65009077.mp3",
+            "url": "/audio/audio.mp3",
             "cover": "https://i.ytimg.com/vi/kb7kv9jHCiA/maxresdefault.jpg",
             "title": "Dying Breed",
             "artist": [
@@ -9,7 +9,7 @@
             ]
         }, 
         {
-            "url": "https://cdn7.deliciouspeaches.com/get/music/20190614/muzlome_Polo_G_-_Dyin_Breed_65009077.mp3",
+            "url": "/audio/audio.mp3",
             "cover": "https://avatars.yandex.net/get-music-content/2427101/93ad7ec3.a.10708083-1/200x200",
             "title": "Kiss and Make up",
             "artist": [

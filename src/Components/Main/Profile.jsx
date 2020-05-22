@@ -22,7 +22,7 @@ class Profile extends Component {
             <img src="https://i.pinimg.com/originals/06/12/7d/06127dc4c4ca9241603a7c4dbe1464fd.jpg" alt=""/>
           </div>
 
-          <ProfileHeaderInfo name="Андрей Какашкин" age="20" genre="Рэп" registrDate=" 17.05.2020" />
+          <ProfileHeaderInfo name="Артем Вернигоров" age="20" genre="Рэп" registrDate=" 17.05.2020" />
 
         </div>
 
