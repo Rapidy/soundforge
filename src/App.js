@@ -6,6 +6,8 @@ import Header from './Components/Header';
 import LeftSideBar from './Components/LeftSideBar';
 import RightSideBar from './Components/RightSideBar';
 import Player from './Components/Player';
+import SignUp from './Components/Auth/SignUp'
+import LogIn from './Components/Auth/LogIn'
 
 import Profile from './Components/Main/Profile';
 import Content from './Components/Main/Content';
@@ -42,6 +44,9 @@ function App() {
           <Player />
 
         </main>   
+
+        <Route path="/signup" component={SignUp}/>
+        <Route path="/login" component={LogIn}/>
         
       </div>
     </BrowserRouter>  
