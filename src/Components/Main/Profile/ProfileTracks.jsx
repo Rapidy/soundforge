@@ -32,9 +32,9 @@ class ProfileTracks extends Component {
   render(){
     const { isLoading, songs } = this.state;
     return (
-        <section className="content-list">
-            { isLoading ? <Preloader /> : this.gridData(songs) }
-        </section>
+      <section className="content-list">
+        { isLoading ? <Preloader /> : this.gridData(songs) }
+      </section>
     )
   }
 }

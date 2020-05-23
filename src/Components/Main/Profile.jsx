@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom'
 
-import bgImage from '../../img/top-song.jpg'
+import bgImage from '../../img/bgimage.jpg'
 
 import ProfileHeaderInfo from './Profile/ProfileHeaderInfo'
 import ProfileTracks from './Profile/ProfileTracks'
 import ProfileAlbums from './Profile/ProfileAlbums'
 import ProfileInfo from './Profile/ProfileInfo'
+import ProfileAddSong from './Profile/ProfileAddSong'
 
 class Profile extends Component {
 
@@ -30,9 +31,10 @@ class Profile extends Component {
           
           <nav className="profile-content-nav">
 
-            <NavLink to="/profile/tracks" className="profile-content-tabs__item">Треки</NavLink>
-            <NavLink to="/profile/albums" className="profile-content-tabs__item">Альбомы</NavLink>
-            <NavLink to="/profile/info" className="profile-content-tabs__item">Информация</NavLink>
+            <NavLink to="/profile/tracks">Треки</NavLink>
+            <NavLink to="/profile/albums">Альбомы</NavLink>
+            <NavLink to="/profile/info">Информация</NavLink>
+            <NavLink to="/profile/add-song" className="addsong">Добавить песню</NavLink>
             
           </nav>
 
@@ -41,6 +43,7 @@ class Profile extends Component {
             <Route exact path="/profile/tracks" component={ProfileTracks} />
             <Route exact path="/profile/albums" component={ProfileAlbums} />
             <Route exact path="/profile/info" component={ProfileInfo} />
+            <Route exact path="/profile/add-song" component={ProfileAddSong} />
 
           </div>
 
