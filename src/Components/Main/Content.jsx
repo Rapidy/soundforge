@@ -5,7 +5,6 @@ import topSong from '../../img/top-song.jpg';
 
 import Preloader from '../Preloader';
 
-
 class Content extends Component {
   state = {
     isLoading: true,
@@ -57,6 +56,3 @@ class Content extends Component {
 }
 
 export default Content;
-
-
-// import contentService from '../../services/contentService';

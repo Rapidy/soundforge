@@ -558,7 +558,44 @@ img
 			transition: .25s
 			&:hover
 				color: lighten($accent, 8%)				
+
+.notfound
+	display: flex
+	align-items: center
+	justify-content: center
+	div
+		height: 100vh
+		position: relative
+		text-transform: uppercase
+	&__img
+		width: 40%
+		background: $accent
+		h2
+			color: $dark
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			font-size: 50px
+			font-weight: 900
+			&:last-of-type
+				top: 54%
+				font-size: 30px	
+	&__text	
+		width: 60%
+		color: $accent
+		h3
+			font-size: 50px
+			right: 0	
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			font-weight: 900
+			&:last-of-type
+				top: 54%
+				font-size: 30px
+	
 /*  */
+
 .step-backward:before
   content: url(../img/backward.svg)
   display: block
