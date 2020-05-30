@@ -6,7 +6,7 @@ import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 import API from "../../utils/API";
 
-import icon from '../../img/man.png';
+// import icon from '../../img/man.png';
 
 class LogIn extends Component {
 
@@ -21,7 +21,8 @@ class LogIn extends Component {
     this.state = {
       apiToken: cookies.get('apiToken'),
       email: '',
-      password: ''
+      password: '',
+      errorForm:''
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -43,12 +44,14 @@ class LogIn extends Component {
   }
 
   handleSubmit(event) {
-    API.post('/login', {'email' : this.state.email,'password' : this.state.password})
+    API.post('/user/login', {'email' : this.state.email,'password' : this.state.password})
        .then(res => {
-          this.onChangeCookies(res.data.token);
+          this.onChangeCookies(res.data);
           this.redirectHome();
 
-       }).catch(error => {console.error(`😱 Axios request failed: ${error}`);});
+       }).catch(error => {
+          this.setState({errorForm: 'Неверная почта или пароль.'});
+       });
   
     event.preventDefault();
   }
@@ -61,35 +64,33 @@ class LogIn extends Component {
   }
 
   render() {
-    this.redirectHome();
+    // this.redirectHome();
     return (
-      <div className="signup">
-
-        <div className="signup-container">
-
-          <div className="signup-container__icon">
-            <img src={icon} alt="Иконка человека"/>
+      <section className="signup">
+          <div className="container">
+            <div className="signup-container">
+              <div className="signup-container__image url-login"></div>
+              <div className="signup-container__form signup-container__form--login">
+                <h2 className="signup-container__title">Авторизация</h2>
+                <form onSubmit={this.handleSubmit} className="form" autoComplete="off">
+                  {this.state.errorForm ? <span className="error form__error-login"><i className="fas fa-exclamation-circle"></i> {this.state.errorForm}</span> : null }
+                  <div className="form-group">
+                    <label className="form-group__label" for="email"><i className="fas fa-envelope"></i></label>
+                    <input className="form-group__input" type="email" name="email" placeholder="Введите почту" value={this.state.email} onChange={this.handleInputChange} required />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-group__label" for="password"><i className="fas fa-key"></i></label>
+                    <input className="form-group__input" type="password" name="password"  placeholder="Введите пароль" value={this.state.password} onChange={this.handleInputChange} required />
+                  </div>
+                  <div className="form-group">
+                    <input type="submit" name="submit" className="form-submit" value="Войти"/>
+                  </div> 
+                  <NavLink to="/signup" className="signup-container__link">Нет аккаунта? Создать</NavLink>
+                </form>
+              </div>
+            </div>
           </div>
-
-          <form onSubmit = {this.handleSubmit} autoComplete="off">
-
-            <div className="signup-container__input">
-              <input type="email" name="email" placeholder="Введите почту" value={this.state.email} onChange={this.handleInputChange} required/>
-            </div>
-
-            <div className="signup-container__input">
-              <input type="password" name="password" placeholder="Введит пароль" value={this.state.password} onChange={this.handleInputChange} required/>
-            </div>
-
-            <button type="submit" className="signup-container__btn">Войти в аккаунт</button>
-
-          </form>
-
-          <NavLink to="/signup">Нет аккаунта? Создать</NavLink>
-
-        </div>
-
-    </div>
+      </section>
     )
   }
 
