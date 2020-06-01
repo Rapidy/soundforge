@@ -19,7 +19,7 @@ function App() {
 
   const onCheckCookies = () => {
     setCookie('apiToken', 'no', { path: '/' });
-    return( <Router history={customHistory.push('/login')}/> );
+    // return( <Router history={customHistory.push('/login')}/> );
   }
 
   if (cookies.apiToken === undefined || cookies.apiToken === 'no') {
