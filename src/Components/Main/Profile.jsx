@@ -8,6 +8,7 @@ import ProfileTracks from './Profile/ProfileTracks'
 import ProfileAlbums from './Profile/ProfileAlbums'
 import ProfileInfo from './Profile/ProfileInfo'
 import ProfileAddSong from './Profile/ProfileAddSong'
+import ProfileSettings from './Profile/ProfileSettings';
 
 class Profile extends Component {
 
@@ -34,6 +35,7 @@ class Profile extends Component {
             <NavLink to="/profile/tracks">Треки</NavLink>
             <NavLink to="/profile/albums">Альбомы</NavLink>
             <NavLink to="/profile/info">Информация</NavLink>
+            <NavLink to="/profile/settings">Настройки</NavLink>
             <NavLink to="/profile/add-song" className="addsong">Добавить песню</NavLink>
             
           </nav>
@@ -43,6 +45,7 @@ class Profile extends Component {
             <Route exact path="/profile/tracks" component={ProfileTracks} />
             <Route exact path="/profile/albums" component={ProfileAlbums} />
             <Route exact path="/profile/info" component={ProfileInfo} />
+            <Route exact path="/profile/settings" component={ProfileSettings} />
             <Route exact path="/profile/add-song" component={ProfileAddSong} />
 
           </div>

@@ -38,8 +38,6 @@ class ProfileAddSong extends Component {
   }
 
   render() {
-
-    const addedSongs = this.uploadedSongs(this.state.songs);
     
     return (
       <div className="addsong-container">
@@ -50,11 +48,29 @@ class ProfileAddSong extends Component {
           <label htmlFor="uploadSongAvatar">Загрузить фото</label>
         </div>
 
-        <form className="addsong-container__input">
-          <input type="file" multiple onChange={this.uploadSongs}/>
+        <form className="addsong-container-data">
+
+          <div className="addsong-container-data__info">
+            <input type="text" placeholder="Название трека"/>
+            <input type="text" placeholder="Введите соучастника"/>
+            <input type="text" placeholder="Введите альбом"/>
+            <input type="text" placeholder="Выберите жанр"/>
+          </div>
+
+          <div className="addsong-container-data__lyrics">
+            <textarea cols="35" rows="10" placeholder="Введите текст песни"></textarea>
+          </div>
+
+          <div className="addsong-container-data__song">
+            <input type="file" id="uploadSong"/>
+            <label htmlFor="uploadSong">Загрузить песню</label>
+          </div>
+
         </form>
-        
-        {addedSongs}
+
+        <div className="addsong-container-controls">
+          <button className="addsong-container-controls__btn" title="Добавить"><i className="fas fa-check"></i></button>
+        </div>
 
       </div>
     );
