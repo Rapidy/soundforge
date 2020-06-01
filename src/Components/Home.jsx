@@ -15,23 +15,31 @@ import FavoriteSongs from './Main/FavoriteSongs'
 import RandomSong from './Main/RandomSong'
 
 function Home() {    
-    return (
-        <BrowserRouter>
-            <Header lastSearch='Trippie Redd - Take a walk'/>
-            <main className="window">
-            <LeftSideBar />
-                <Route exact path="/" component={Content}/>	
-                <Route path="/profile" component={Profile}/>	
-                <Route path="/top-tracks" component={TopSongs}/>
-                <Route path="/recommendations" component={Recommend}/>
-                <Route path="/new-songs" component={NewSongs}/>
-                <Route path="/favorite" component={FavoriteSongs}/>
-                <Route path="/random-track" component={RandomSong}/>
-            <RightSideBar /> 
-            <Player /> 
-            </main>
-        </BrowserRouter>
-    );
+	return (
+		<BrowserRouter>
+
+			<Header lastSearch='Trippie Redd - Take a walk'/>
+
+			<main className="window">
+
+				<LeftSideBar />
+
+					<Route exact path="/" component={Content}/>	
+					<Route path="/profile" component={Profile}/>	
+					<Route path="/top-tracks" component={TopSongs}/>
+					<Route path="/recommendations" component={Recommend}/>
+					<Route path="/new-songs" component={NewSongs}/>
+					<Route path="/favorite" component={FavoriteSongs}/>
+					<Route path="/random-track" component={RandomSong}/>
+
+				<RightSideBar /> 
+
+				<Player /> 
+				
+			</main>
+
+		</BrowserRouter>
+	);
 }
 
 export default Home;

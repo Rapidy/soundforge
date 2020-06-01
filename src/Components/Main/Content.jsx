@@ -6,11 +6,11 @@ import topSong from '../../img/top-song.jpg';
 import Preloader from '../Preloader';
 
 class Content extends Component {
+
   state = {
     isLoading: true,
     songs: null
   };
-
 
   gridData(arr) {
     return arr.map( (item, key) => {

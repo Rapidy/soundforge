@@ -10,7 +10,6 @@ class ProfileTracks extends Component {
     songs: null
   };
 
-
   gridData(arr) {
     return arr.map( (item, key) => {
       return (
@@ -29,6 +28,7 @@ class ProfileTracks extends Component {
       songs: songs
     });
   }
+  
   render(){
     const { isLoading, songs } = this.state;
     return (
