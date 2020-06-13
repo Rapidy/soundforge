@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserHistory } from "history";
+// import { createBrowserHistory } from "history";
 import { BrowserRouter, Route } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
@@ -11,7 +11,7 @@ import Home from './Components/Home';
 
 function App() {
 
-  const customHistory = createBrowserHistory();
+  // const customHistory = createBrowserHistory();
   const [cookies, setCookie] = useCookies();
 
   const onCheckCookies = () => {
@@ -26,7 +26,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Route path="/" component={Home}/>	
+        <Route exact path="/" component={Home}/>	
         <Route path="/signup" component={SignUp}/>
         <Route path="/login" component={LogIn}/>
       </div>

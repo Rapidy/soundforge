@@ -7,23 +7,29 @@ import Preloader from '../Preloader';
 
 class Content extends Component {
 
-  state = {
-    isLoading: true,
-    songs: null
-  };
+  constructor(props) {
+    super(props);
 
-  gridData(arr) {
-    return arr.map( (item, key) => {
-      return (
-        <div key={key} className="content-list__item">
-          <img src={item.cover} alt={item.title}/>
+    this.state = {
+      isLoading: true,
+      songs: null
+    };
+
+  } 
+
+
+  gridData(array) {
+    return array.map( (a) => {
+      return(
+        <div key={a.id} className="content-list__item" onClick = {this.props.PlaylistSongs.bind(this, a.songs) }>
+          <img src={a.photo} alt={a.name}/>
         </div>
       );
-    })
+    });
   }
 
   async componentDidMount() {
-    let songs = await API.get('/posts/music');
+    let songs = await API.get('/music');
         songs = songs.data;
     this.setState({
       isLoading: false,

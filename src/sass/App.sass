@@ -56,7 +56,9 @@ img
 	display: block
 	pointer-events: none
 	user-select: none
-
+.flex
+	display: flex
+	align-items: center
 .section
 	margin-top: 30px
 	overflow-y: scroll
@@ -315,6 +317,35 @@ img
 	justify-content: space-between
 	height: 65px
 	padding: 0 25px
+	&__range
+		overflow: hidden
+		width: 100%
+		-webkit-appearance: none
+		background-color: #292929
+		border-radius: 8px
+		&:focus
+			outline: none
+		&::-webkit-slider-runnable-track
+			height: 5px
+			-webkit-appearance: none
+			border-radius: 8px
+		&::-webkit-slider-thumb
+			width: 5px
+			-webkit-appearance: none
+			height: 5px
+			cursor: pointer
+			background: #f23005
+			box-shadow: -20003px 0 0 20000px #f23005
+			border-radius: 8px
+		&::-moz-range-progress 
+        	background-color: #f23005
+		&::-moz-range-track 
+        	background-color: #292929	
+		&::-ms-fill-lower
+        	background-color: #f23005
+		&::-ms-fill-upper 
+        	background-color: #292929
+	
 	&__info
 		display: flex
 		align-items: center
@@ -340,13 +371,11 @@ img
 				color: #b3b3b3
 	&__control
 		display: flex
-		button
+		&-btn
+			margin: 0 5px
 			padding: 0
 			line-height: 10px
-		.step-backward
-			margin-right: 10px
-		.step-forward
-			margin-left: 10px
+			color: #fff
 	&__progressbar
 		display: flex
 		align-items: center
@@ -356,8 +385,9 @@ img
 			font-weight: 300
 			margin-right: 10px
 	&__type
-		height: 20px
-		button
+		width: 40px
+		&-btn
+			color: #fff
 			background: none
 			border: 0
 			outline: none
@@ -367,11 +397,14 @@ img
 		display: flex
 		min-width: 8%
 		align-items: center
+		
 		&-icon
 			margin-right: 10px
 			height: 21px
 		&-bar
 			width: 100%
+		&-btn	
+			color: #fff
 .progress
 	width: 100%
 	background-color: #dadada
