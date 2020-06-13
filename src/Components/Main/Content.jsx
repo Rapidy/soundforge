@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import API from "../../utils/API";
+// import API from "../../utils/API";
+// import { instanceOf } from 'prop-types';
+// import { withCookies, Cookies } from 'react-cookie';
 
 import topSong from '../../img/top-song.jpg';
 
@@ -7,33 +9,46 @@ import Preloader from '../Preloader';
 
 class Content extends Component {
 
-  state = {
-    isLoading: true,
-    songs: null
-  };
+  // static propTypes = {
+  //   cookies: instanceOf(Cookies).isRequired
+  // };
 
-  gridData(arr) {
-    return arr.map( (item, key) => {
-      return (
-        <div key={key} className="content-list__item">
-          <img src={item.cover} alt={item.title}/>
-        </div>
-      );
-    })
-  }
+  // constructor(props) {
+  //   super(props);
+  //   const { cookies } = props;
+  //   this.state = {
+  //     apiToken: cookies.get('apiToken'),
+  //     // isLoading: true,
+  //     // albums: null
+  //   };
 
-  async componentDidMount() {
-    let songs = await API.get('/posts/music');
-        songs = songs.data;
-    this.setState({
-      isLoading: false,
-      songs: songs
-    });
-  }
+  // } 
+
+
+  // gridData(array) {
+  //   return array.map( (a) => {
+  //     return(
+  //       <div key={a.id} className="content-list__item" onClick = {this.props.PlaylistSongs.bind(this, a.songs) }>
+  //         <img src={a.photo} alt={a.name}/>
+  //       </div>
+  //     );
+  //   });
+  // }
+
+  // async componentDidMount() {
+  //   await API.post('albums/all', { 'token': this.state.apiToken })
+  //   .then(res => {
+  //       this.setState({
+  //         isLoading: false,
+  //         albums: res.data
+  //       });
+  //   }).catch(error => {
+  //     console.log(`😱 Axios request failed: ${error}`);
+  //   });
+  // }
 
   render() {
-    const { isLoading, songs } = this.state;
-
+    const { isLoading, albums } = this.props;
     return (
       <section className="content section">
 
@@ -46,7 +61,7 @@ class Content extends Component {
         </header>
 
         <section className="content-list">
-          { isLoading ? <Preloader /> : this.gridData(songs) }
+          { isLoading ? <Preloader /> : this.props.AlbumOutput(albums) }
         </section>
 
       </section>

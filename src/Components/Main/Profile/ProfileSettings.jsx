@@ -2,10 +2,10 @@ import React from 'react'
 
 const ProfileSettings = (props) => {
   return (
-      <section class="content-list">
+      <section className="content-list">
         
       </section>
   )
 }
 
-export default ProfileSettings
+export default ProfileSettings;

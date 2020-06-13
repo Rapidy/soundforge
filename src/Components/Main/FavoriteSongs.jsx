@@ -4,8 +4,8 @@ class FavoriteSongs extends Component {
   render() {
     return (
       <section className="content section">
-        <section class="content-list">
-            <div class="content-list__item">
+        <section className="content-list">
+            <div className="content-list__item">
             <img src="http://localhost:3000/bom/img3.jpg" alt="Kiss and Make up"/>
             </div>
         </section>

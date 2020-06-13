@@ -56,7 +56,9 @@ img
 	display: block
 	pointer-events: none
 	user-select: none
-
+.flex
+	display: flex
+	align-items: center
 .section
 	margin-top: 30px
 	overflow-y: scroll
@@ -99,9 +101,11 @@ img
 			&_avatar
 				height: 65px
 				width: 65px
+				
 				img
 					width: 100%
 					height: 100%
+					object-fit: cover
 			&-text
 				margin-left: 14px
 				.h2
@@ -226,31 +230,83 @@ img
 			img
 				width: 100%
 				height: 100%
-	&-header, &-list__item
-		position: relative
-		&::before
-			content: '\f144'
-			font-family: 'Font Awesome 5 Free'
+		&__func
 			position: absolute
-			font-weight: 700
-			font-size: 30px
-			color: #ccc
+			background: rgba(34,34,34,.6)
 			top: 0
+			left: 0
 			right: 0
 			bottom: 0
+			z-index: 1
+			// display: none
+		&__actions
+			position: absolute
+			top: 50%
 			left: 0
-			background: rgba(#000, .5)
-			display: flex
+			right: 0
+			height: 58px
+			margin-top: -29px
+			z-index: 2
+			text-align: center
+		&__icon
+			background-position: center
+			background-repeat: no-repeat
+			background-size: cover
+			width: 24px
+			height: 24px
+			display: inline-block	
+		&__heart
+			background-image: url(https://music.yandex.kz/i/o1AWCDKI626dMym8Bwpim322iX8.svg)
+			&--fill
+				background-image: url(https://music.yandex.kz/i/waaZnC3MthBs3mfOcCTCFx8RE5o.svg)
+	
+		&__play
+			background-image: url(https://music.yandex.kz/i/TyMldxG7JTqTkaqgZVR6k9vV-D4.svg)	
+			width: 30px
+			height: 30px
+		&__link
+			background-color: rgba(34,34,34,.8)
+			width: 40px
+			height: 40px
+			border-radius: 50px
+			display: inline-flex
 			justify-content: center
 			align-items: center
-			opacity: 0
-			visibility: hidden
-			transition: .2s
-		&:hover
-			cursor: pointer
-			&::before
-				opacity: 1
-				visibility: visible
+			margin: 5px
+			transition: transform 0.1s
+			&:hover
+				transform: scale(1.1);
+				transition: transform 0.1s
+			&--play
+				background-color: #f23005
+				width: 50px
+				height: 50px	
+
+	&-header, &-list__item
+		position: relative
+		// &::before
+		// 	content: '\f144'
+		// 	font-family: 'Font Awesome 5 Free'
+		// 	position: absolute
+		// 	font-weight: 700
+		// 	font-size: 30px
+		// 	color: #ccc
+		// 	top: 0
+		// 	right: 0
+		// 	bottom: 0
+		// 	left: 0
+		// 	background: rgba(#000, .5)
+		// 	display: flex
+		// 	justify-content: center
+		// 	align-items: center
+		// 	opacity: 0
+		// 	visibility: hidden
+		// 	transition: .2s
+		// &:hover
+		// 	cursor: pointer
+		// 	&::before
+		// 		opacity: 1
+		// 		visibility: visible
 
 .playlists
 	padding: 30px 0 30px 30px
@@ -315,6 +371,35 @@ img
 	justify-content: space-between
 	height: 65px
 	padding: 0 25px
+	&__range
+		overflow: hidden
+		width: 100%
+		-webkit-appearance: none
+		background-color: #292929
+		border-radius: 8px
+		&:focus
+			outline: none
+		&::-webkit-slider-runnable-track
+			height: 5px
+			-webkit-appearance: none
+			border-radius: 8px
+		&::-webkit-slider-thumb
+			width: 5px
+			-webkit-appearance: none
+			height: 5px
+			cursor: pointer
+			background: #f23005
+			box-shadow: -20003px 0 0 20000px #f23005
+			border-radius: 8px
+		&::-moz-range-progress 
+        	background-color: #f23005
+		&::-moz-range-track 
+        	background-color: #292929	
+		&::-ms-fill-lower
+        	background-color: #f23005
+		&::-ms-fill-upper 
+        	background-color: #292929
+	
 	&__info
 		display: flex
 		align-items: center
@@ -340,13 +425,11 @@ img
 				color: #b3b3b3
 	&__control
 		display: flex
-		button
+		&-btn
+			margin: 0 5px
 			padding: 0
 			line-height: 10px
-		.step-backward
-			margin-right: 10px
-		.step-forward
-			margin-left: 10px
+			color: #fff
 	&__progressbar
 		display: flex
 		align-items: center
@@ -356,8 +439,9 @@ img
 			font-weight: 300
 			margin-right: 10px
 	&__type
-		height: 20px
-		button
+		width: 40px
+		&-btn
+			color: #fff
 			background: none
 			border: 0
 			outline: none
@@ -367,11 +451,14 @@ img
 		display: flex
 		min-width: 8%
 		align-items: center
+		
 		&-icon
 			margin-right: 10px
 			height: 21px
 		&-bar
 			width: 100%
+		&-btn	
+			color: #fff
 .progress
 	width: 100%
 	background-color: #dadada
@@ -424,6 +511,7 @@ img
 			img
 				width: 100%
 				height: 100%
+				object-fit: cover
 		&__info
 			.h2
 				font-weight: 400
