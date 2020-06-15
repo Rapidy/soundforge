@@ -735,6 +735,10 @@ img
 			position: absolute
 			left: 0
 			top: -30px
+	a
+		transition: .25s
+		&:hover
+			color: $accent !important		
 	&-group
 		position: relative
 		padding-bottom: 30px
@@ -748,29 +752,28 @@ img
 			left: 3px
 			top: 5%
 			font-size: 14px
-			color: #f23005
+			color: $accent
 		&__input
 			width: 100%
 			display: block
-			border: none
 			border-bottom: 1px solid #999999
 			padding: 6px 30px
 			box-sizing: border-box	
 			background: #0a0a0a
 			color: #fff
 	&-submit
-		display: inline-block
-		background: #f23005
-		border-bottom: none
+		background: $accent
 		width: auto
 		padding: 10px 39px
 		cursor: pointer
 		margin-top: 16px
-		border: none
 		color: #fff
+		transition: .25s
+		&:hover
+			background: lighten($accent, 10%)
 .error
 	font-size: 14px
-	color: #f23005
+	color: $accent
 .url
 	&-login
 		background-image: url(../img/img-login.jpg);

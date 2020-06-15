@@ -33,7 +33,8 @@ class Home extends Component {
       albums: null,
       playlist: null,
       curentSong: null,
-      isLoading: true
+      isLoading: true,
+      isLiked: false
     };
 
   } 
@@ -99,7 +100,14 @@ class Home extends Component {
   AlbumOutput = (array) => {
     return array.map( (a) => {
       return(
-        <Album album = {a} UserFavoritesAdd = {this.UserFavoritesAdd} ContentPlaylistSongs = {this.ContentPlaylistSongs} />
+        <Album 
+          album = {a} 
+          UserFavoritesAdd = {this.UserFavoritesAdd} 
+          ContentPlaylistSongs = {this.ContentPlaylistSongs}
+          key = {a.key}
+          onClickLike = {this.LikeSong}
+          isLiked = {a.key === this.state.isLiked}
+        />
       );
     });
   }
@@ -107,12 +115,18 @@ class Home extends Component {
   UserFavoritesAdd = (id, type) => {
     console.log(id, type);
     
-    // API.post('user/favorites/add', { 'token': this.state.apiToken, 'id': id, 'type': type })
-    // .then(res => {
-    //     console.log(res, 'UserFavoritesAdd');
-    // }).catch(error => {
-    //   console.log(`😱 Axios request failed: ${error}`);
-    // });
+    API.post('user/favorites/add', { 'token': this.state.apiToken, 'id': id, 'type': type })
+    .then(res => {
+        console.log(res, 'UserFavoritesAdd');
+    }).catch(error => {
+        
+    });
+  }
+
+  LikeSong = (key) => {
+    this.setState({
+      isLiked: key
+    })
   }
 
   // UserFavoritesGet = () => {
