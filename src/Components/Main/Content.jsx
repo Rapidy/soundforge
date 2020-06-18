@@ -48,7 +48,7 @@ class Content extends Component {
   // }
 
   render() {
-    const { isLoading, albums } = this.props;
+    const { isLoading, Songs } = this.props;
     return (
       <section className="content section">
 
@@ -61,7 +61,7 @@ class Content extends Component {
         </header>
 
         <section className="content-list">
-          { isLoading ? <Preloader /> : this.props.AlbumOutput(albums) }
+          { isLoading ? <Preloader /> : this.props.SongsOutput(Songs) }
         </section>
 
       </section>

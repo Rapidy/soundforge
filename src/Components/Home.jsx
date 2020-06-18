@@ -16,7 +16,7 @@ import Recommend from './Main/Recommend'
 import NewSongs from './Main/NewSongs'
 import FavoriteSongs from './Main/FavoriteSongs'
 import RandomSong from './Main/RandomSong'
-import Album from './Album'
+import Songs from './Songs'
 
 class Home extends Component {   
 
@@ -30,16 +30,16 @@ class Home extends Component {
     this.state = {
       apiToken: cookies.get('apiToken'),
       DataUser: '', 
-      albums: null,
+      Songs: null,
       playlist: null,
       curentSong: null,
-      isLoading: true
+      isLoading: true,
     };
-
+    
   } 
 
   ContentPlaylistSongs = (songs) => { 
-    console.log(songs);
+    console.log(songs); 
         
   //   API.post('/songs/playlist', songs)
   //   .then( res => {
@@ -48,27 +48,9 @@ class Home extends Component {
   //     console.log(`😱 Axios request failed: ${error}`);
   //  });  
   }
-
-  RightSideBarMusicList = () => {   
-    let playlist = this.state.playlist;
-    if(playlist) { 
-      return playlist.map(song => { 
-        return(
-        <li className="playlists-list-category__item" key={song.id} onClick={ this.onCurentSong.bind(this, song.id) }>
-          {song.title}
-        </li>
-        ); 
-      });
-    }
-  }
   
   onCurentSong = (id) => {
     this.setState({ curentSong: id });
-  }
-
-  playerSongs = () => {
-   let playlist = this.state.playlist;
-   return playlist;
   }
 
   playerCurentSong = () => {
@@ -84,28 +66,29 @@ class Home extends Component {
       this.setState({ DataUser: DataUser });
     }).catch(error => {console.error(`😱 Axios request failed: ${error}`)}); 
 
-    await API.post('albums/all', { 'token': this.state.apiToken })
+    await API.post('songs/all', { 'token': this.state.apiToken })
     .then(res => {
         this.setState({
           isLoading: false,
-          albums: res.data
+          Songs: res.data
         });
+        
     }).catch(error => {
       console.log(`😱 Axios request failed: ${error}`);
     });
 
   }
 
-  AlbumOutput = (array) => {
+  SongsOutput = (array) => {
     return array.map( (a) => {
       return(
-        <Album 
-          album = {a} 
+        <Songs 
+          song = {a} 
           UserFavoritesAdd = {this.UserFavoritesAdd} 
-          ContentPlaylistSongs = {this.ContentPlaylistSongs}
+          onCurentSong = {this.onCurentSong}
           key = {a.key}
-          onClickLike = {this.LikeSong}
-          isLiked = {a.key === this.state.isLiked}
+          // onClickLike = {this.LikeSong}
+          // isLiked = {a.key === this.state.isLiked}
         />
       );
     });
@@ -114,12 +97,12 @@ class Home extends Component {
   UserFavoritesAdd = (id, type) => {
     console.log(id, type);
     
-    API.post('user/favorites/add', { 'token': this.state.apiToken, 'id': id, 'type': type })
-    .then(res => {
-        console.log(res, 'UserFavoritesAdd');
-    }).catch(error => {
-        
-    });
+    // API.post('user/favorites/add', { 'token': this.state.apiToken, 'id': id, 'type': type })
+    // .then(res => {
+    //     console.log(res, 'UserFavoritesAdd');
+    // }).catch(error => {
+    //   console.error(`😱 Axios request failed: ${error}`)
+    // });
   }
 
   LikeSong = (key) => {
@@ -140,6 +123,16 @@ class Home extends Component {
   //   });
   // }
 
+  // RightSideBarMusicList(playlist) {   
+  //   return playlist.map(song => { 
+  //     return(
+  //     <li className="playlists-list-category__item" key={song.id}>
+  //       {song.name}
+  //     </li>
+  //     ); 
+  //   });
+  // }
+
     render(){
       return (
         <BrowserRouter>
@@ -149,22 +142,17 @@ class Home extends Component {
 
             <LeftSideBar />
               <Switch>
-                {/* <Route exact path="/"  render={(props)=><Content PlaylistSongs = { this.ContentPlaylistSongs } {...props}/>} />	 */}
-                <Route exact path="/"  render = {()=><Content isLoading = {this.state.isLoading} albums = {this.state.albums} AlbumOutput = {this.AlbumOutput} />} />	
+                <Route exact path="/"  render = {()=><Content isLoading = {this.state.isLoading} Songs = {this.state.Songs} SongsOutput = {this.SongsOutput} />} />	
                 <Route path="/profile" render = {()=><Profile DataUser={this.state.DataUser} />} />	
                 <Route path="/top-tracks" component={TopSongs} />
                 <Route path="/recommendations" component={Recommend} />
                 <Route path="/new-songs" component={NewSongs} />
                 <Route path="/favorite" component={FavoriteSongs} />
-                <Route path="/random-track" render = {() => <RandomSong isLoading = {this.state.isLoading} albums = {this.state.albums} AlbumOutput = {this.AlbumOutput} />} />
+                <Route path="/random-track" render = {() => <RandomSong isLoading = {this.state.isLoading} Songs = {this.state.Songs} SongsOutput = {this.SongsOutput} />} />
               </Switch>
             <RightSideBar musicList={this.RightSideBarMusicList} /> 
 
-            {/* {this.state.playlist && this.state.curentSong ? <Player playerSongs = {this.playerSongs} curentSong = {this.playerCurentSong}/> : null } */}
-            {this.state.playlist ? <Player musicList={this.RightSideBarMusicList} playerCurentSong = {this.playerCurentSong} playerSongs = {this.playerSongs} /> : null}
-
-            {console.log(this.state.playlist, 'playlist-home')}
-            {console.log(this.state.curentSong, 'curentSong-home')}
+           {this.state.Songs ? <Player playlist={this.state.Songs} playerCurentSong = {this.playerCurentSong} onCurentSong = {this.onCurentSong} /> : null }  
 
           </main>
 

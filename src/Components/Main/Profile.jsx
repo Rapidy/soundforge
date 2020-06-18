@@ -24,7 +24,7 @@ class Profile extends Component {
             <img src={this.props.DataUser.photo} alt={this.props.DataUser.name}/>
           </div>
 
-          <ProfileHeaderInfo name={this.props.DataUser.name} age={this.props.DataUser.age} genre={this.props.DataUser.genre,'-'} registrDate={this.props.DataUser.created_at} />
+          <ProfileHeaderInfo name={this.props.DataUser.name} age={this.props.DataUser.age} genre={this.props.DataUser.genre,'Рэп'} registrDate={this.props.DataUser.created_at} />
 
         </div>
 
