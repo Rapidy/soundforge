@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Preloader from '../Preloader';
 
 class RandomSong extends Component {
   render() {
+    const { isLoading, Songs } = this.props;
     return (
       <section className="content section">
-        <section class="content-list"><div class="content-list__item"><img src="http://localhost:3000/bom/img2.jpg" alt="Kiss and Make up"/></div><div class="content-list__item"><img src="http://localhost:3000/bom/img3.jpg" alt="Kiss and Make up"/></div><div class="content-list__item"><img src="http://localhost:3000/bom/img1.jpg" alt="Kiss and Make up"/></div><div class="content-list__item"><img src="http://localhost:3000/bom/img4.jpg" alt="Kiss and Make up"/></div></section>
-
+        <section className="content-list">
+        { isLoading ? <Preloader /> : this.props.SongsOutput(Songs) }
+        </section>
       </section>
     );
   }

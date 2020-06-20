@@ -40,7 +40,7 @@ class LogIn extends Component {
   onChangeCookies(apiToken) {
     const { cookies } = this.props;    
     cookies.set('apiToken', apiToken, { path: '/' });
-    this.setState({ apiToken });
+    this.setState({ apiToken: apiToken });
   }
 
   handleSubmit(event) {
@@ -59,12 +59,10 @@ class LogIn extends Component {
   redirectHome(){
     if (this.state.apiToken !== 'no') { 
        window.location = '/';
-       return null;
     } 
   }
 
   render() {
-    // this.redirectHome();
     return (
       <section className="signup">
           <div className="container">

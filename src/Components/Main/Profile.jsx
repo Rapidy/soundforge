@@ -21,10 +21,10 @@ class Profile extends Component {
           <div className="profile-header-wrapper" style={{ backgroundImage: `url( ${bgImage} )` }}></div>
 
           <div className="profile-header__avatar">
-            <img src="https://i.pinimg.com/originals/06/12/7d/06127dc4c4ca9241603a7c4dbe1464fd.jpg" alt=""/>
+            <img src={this.props.DataUser.photo} alt={this.props.DataUser.name}/>
           </div>
 
-          <ProfileHeaderInfo name="Артем Вернигоров" age="20" genre="Рэп" registrDate=" 17.05.2020" />
+          <ProfileHeaderInfo name={this.props.DataUser.name} age={this.props.DataUser.age} genre={this.props.DataUser.genre,'Рэп'} registrDate={this.props.DataUser.created_at} />
 
         </div>
 

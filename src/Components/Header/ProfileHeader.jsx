@@ -8,7 +8,8 @@ const ProfileHeader = (props) => {
 
       <div className="header-container__profile_avatar">
         <NavLink to="/profile/tracks">
-          <img src="https://i.pinimg.com/originals/06/12/7d/06127dc4c4ca9241603a7c4dbe1464fd.jpg" alt="Аватар профиля" />
+        {/* <img src="https://i.pinimg.com/originals/06/12/7d/06127dc4c4ca9241603a7c4dbe1464fd.jpg" alt="Аватар профиля" /> */}
+          <img src={props.img} alt="Аватар профиля" />
         </NavLink>
       </div>
 

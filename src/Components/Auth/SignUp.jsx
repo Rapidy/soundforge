@@ -32,9 +32,9 @@ class SignUp extends Component {
   } 
 
   handleSubmit(e) {
-      if(this.state.password.length < 8){
+      if(this.state.password.length < 8) {
           this.setState({passwordErrorLength:'Пароль должен быть минимум из 8 символов.',passwordErrorСoincidence:''});
-      }else{
+      }else {
         this.setState({passwordErrorLength:''});
         if (this.state.password_confirm !== this.state.password) {
           this.setState({passwordErrorСoincidence:'Пароли не совпадают попробуйте еще раз.', passwordErrorLength:''});
@@ -65,7 +65,7 @@ class SignUp extends Component {
                   this.setState({ apiToken: res.data });
                   window.location = '/';
                 }
-              }).catch(error => {console.error(`😱 Axios request failed: ${error}`);});
+              }).catch(error => {console.error(`😱 Axios request failed: ${error}`)});
         }
       }
     
